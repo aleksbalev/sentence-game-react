@@ -4,7 +4,7 @@ import './Sentence.css';
 
 const sentence = (props) => {
   return (
-    <div className='Sentence'>
+    <div className='SentenceText'>
       <p>{props.sentence}</p>
     </div>
   );
