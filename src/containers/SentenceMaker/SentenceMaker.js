@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import Questions from '../../components/Questions/Questions';
 import Sentence from '../../components/Sentence/Sentence';
 
+import './SentenceMaker.css';
 class SentenceMaker extends Component {
   state = {
     questions: [
@@ -44,15 +45,15 @@ class SentenceMaker extends Component {
 
   render() {
     return (
-      <div>
+      <div className='SentenceMaker'>
         <form onSubmit={this.handleSubmit}>
           <Questions
             questions={this.state.questions}
             change={this.handleChange}
             disabled={this.state.disabled}
           />
-          <button type='submit' value='Submit'>
-            Submit
+          <button className='SentenceMakerBtn' type='submit' value='Submit'>
+            Ready?
           </button>
         </form>
         {this.state.isSubmitted && (

@@ -5,8 +5,11 @@ import './Question.css';
 const question = (props) => {
   return (
     <div className='Question'>
-      <label htmlFor={props.questionName}>{props.questionName}?</label>
+      <label className='QuestionLabel' htmlFor={props.questionName}>
+        {props.questionName}?
+      </label>
       <input
+        className='QuestionInput'
         type='text'
         name={props.questionName}
         onChange={props.change}

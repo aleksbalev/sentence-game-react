@@ -1,8 +1,10 @@
 import React from 'react';
 
+import './Sentence.css';
+
 const sentence = (props) => {
   return (
-    <div>
+    <div className='Sentence'>
       <p>{props.sentence}</p>
     </div>
   );

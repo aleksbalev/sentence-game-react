@@ -1,0 +1,10 @@
+.PreviewBtn {
+  padding: 20px;
+  margin: 100px 0 0 0;
+  font-size: 70px;
+
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  color: red;
+}
