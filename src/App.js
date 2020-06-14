@@ -12,7 +12,7 @@ class App extends Component {
   renderComponent = () => {
     switch (this.state.displayed) {
       case 'Preview':
-        return <Preview click={this.handleClickOnPreview} />;
+        return <Preview click={this.handleClick} />;
       case 'SentenceMaker':
         return <SentenceMaker />;
       default:
@@ -20,13 +20,11 @@ class App extends Component {
     }
   };
 
-  handleClickOnPreview = () => {
+  handleClick = () => {
     this.setState({
       displayed: 'SentenceMaker',
     });
   };
-
-  handleClickOnSentMaker = () => {};
 
   render() {
     return <div className='App'>{this.renderComponent()}</div>;
