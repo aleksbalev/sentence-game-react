@@ -1,5 +1,7 @@
 .SentenceText {
+  position: relative;
   margin: 50px 0 0 0;
+  z-index: 0;
 }
 
 .SentenceBtn {
@@ -12,4 +14,32 @@
   border-radius: 5px;
   font-size: 20px;
   color: red;
+}
+
+.SentenceLoose {
+  position: absolute;
+  left: -50px;
+  height: 400px;
+  width: 400px;
+  background-image: url(../../assets/blood.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.7;
+  z-index: -1;
+  box-shadow: 0 0 15px 15px black inset;
+}
+
+.SentenceWin {
+  position: absolute;
+  top: -70px;
+  left: -165px;
+  height: 500px;
+  width: 600px;
+  background-image: url(../../assets/door.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.7;
+  z-index: -1;
 }

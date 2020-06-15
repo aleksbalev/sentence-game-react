@@ -10,21 +10,7 @@ p {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-}
-
-.Preview::before {
-  content: '';
-  position: absolute;
-  background-image: url(../../assets/saw-doll.png);
-  background-repeat: no-repeat;
-  background-position: center;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  opacity: 0.5;
-  z-index: -1;
-  box-shadow: 0 0 30px 30px white inset;
+  z-index: 0;
 }
 
 .PreviewBtn {
@@ -40,4 +26,16 @@ p {
 
 .PreviewTextContainer {
   margin: 0 0 65px 0;
+}
+
+.PreviewImage {
+  position: absolute;
+  height: 100vh;
+  width: 740px;
+  background-image: url(../../assets/saw-doll.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.2;
+  z-index: -1;
 }

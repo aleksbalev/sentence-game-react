@@ -23,6 +23,7 @@ const preview = (props) => (
     <button className='PreviewBtn' onClick={props.click}>
       Let's play a game!
     </button>
+    <div className='PreviewImage'></div>
   </div>
 );
 
