@@ -13,6 +13,7 @@ const question = (props) => {
         type='text'
         name={props.questionName}
         onChange={props.change}
+        required
       />
     </div>
   );

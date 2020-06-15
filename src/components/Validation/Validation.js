@@ -6,11 +6,11 @@ const validation = (props) => {
   return (
     <h2
       className={
-        props.sentence === "Let's play a game"
+        props.sentence === "Let's play a game!"
           ? 'ValidationTextGreen'
           : 'ValidationTextRed'
       }>
-      {props.sentence === "Let's play a game" ? 'YOU WIN!' : 'YOU LOOSE!'}
+      {props.sentence === "Let's play a game!" ? 'YOU WIN!' : 'YOU LOOSE!'}
     </h2>
   );
 };
