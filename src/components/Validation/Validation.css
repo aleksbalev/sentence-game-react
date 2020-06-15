@@ -1,5 +1,11 @@
-.ValidationText {
+.ValidationTextRed {
   font-size: 50px;
 
   color: red;
+}
+
+.ValidationTextGreen {
+  font-size: 50px;
+
+  color: green;
 }

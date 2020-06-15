@@ -1,3 +1,15 @@
 .SentenceText {
   margin: 50px 0 0 0;
 }
+
+.SentenceBtn {
+  padding: 5px 20px;
+  margin: 20px 0 0 0;
+
+  cursor: pointer;
+  background-color: transparent;
+  border: 2px solid red;
+  border-radius: 5px;
+  font-size: 20px;
+  color: red;
+}

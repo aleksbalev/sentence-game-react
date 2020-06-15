@@ -6,11 +6,7 @@ const questionsForm = (props) => {
   return (
     <div>
       <form onSubmit={props.submit}>
-        <Questions
-          questions={props.questions}
-          change={props.change}
-          disabled={props.disabled}
-        />
+        <Questions questions={props.questions} change={props.change} />
         <button className='SentenceMakerBtn' type='submit' value='Submit'>
           Ready?
         </button>

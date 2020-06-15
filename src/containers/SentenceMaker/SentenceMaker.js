@@ -29,7 +29,6 @@ class SentenceMaker extends Component {
       },
     ],
     isSubmitted: false,
-    disabled: false,
   };
 
   handleChange = (evt) => {
@@ -40,7 +39,14 @@ class SentenceMaker extends Component {
 
   handleSubmit = (evt) => {
     evt.preventDefault();
-    this.setState({isSubmitted: true, disabled: !this.state.disabled});
+    this.setState({
+      isSubmitted: !this.state.isSubmitted,
+      disabled: !this.state.disabled,
+    });
+  };
+
+  pageRefresh = () => {
+    window.location.reload(false);
   };
 
   render() {
@@ -51,7 +57,6 @@ class SentenceMaker extends Component {
             submit={this.handleSubmit}
             questions={this.state.questions}
             change={this.handleChange}
-            disabled={this.state.disabled}
           />
         ) : (
           <Sentence
@@ -64,6 +69,7 @@ class SentenceMaker extends Component {
               ' ' +
               this.state.When
             }
+            refresh={this.pageRefresh}
           />
         )}
       </div>

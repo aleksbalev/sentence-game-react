@@ -13,7 +13,6 @@ const question = (props) => {
         type='text'
         name={props.questionName}
         onChange={props.change}
-        disabled={props.disabled ? 'disabled' : ''}
       />
     </div>
   );

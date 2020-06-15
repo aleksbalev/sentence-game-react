@@ -8,7 +8,6 @@ const questions = (props) =>
       <Question
         questionName={question.questionName}
         change={(evt) => props.change(evt)}
-        disabled={props.disabled}
         key={question.id}
       />
     );
