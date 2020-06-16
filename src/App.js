@@ -1,34 +1,23 @@
-import React, {Component} from 'react';
+import React, { Component } from "react";
+import { createStore } from "redux";
+import { Provider } from "react-redux";
 
-import SentenceMaker from './containers/SentenceMaker/SentenceMaker';
-import Preview from './components/Preview/Preview';
+import InitialView from "./components/InitialView";
 
-import './App.css';
+import reducers from "./reducers/index";
+
+import "./App.css";
+
+const store = createStore(reducers);
+
 class App extends Component {
-  state = {
-    displayed: 'Preview',
-  };
-
-  renderComponent = () => {
-    switch (this.state.displayed) {
-      case 'Preview':
-        return <Preview click={this.handleClick} />;
-      case 'SentenceMaker':
-        return <SentenceMaker />;
-      default:
-        return <Preview />;
+    render() {
+        return (
+            <Provider store={store}>
+                <InitialView />
+            </Provider>
+        );
     }
-  };
-
-  handleClick = () => {
-    this.setState({
-      displayed: 'SentenceMaker',
-    });
-  };
-
-  render() {
-    return <div className='App'>{this.renderComponent()}</div>;
-  }
 }
 
 export default App;

@@ -1,74 +1,47 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
 
 import QuestionsForm from '../../components/Questions/QuestionsForm';
 import Sentence from '../../components/Sentence/Sentence';
+import {
+  handleQuestionsSubmit,
+  handleQuestionsChange,
+  resetApp,
+} from '../../actions/index';
 
 import './SentenceMaker.css';
 class SentenceMaker extends Component {
-  state = {
-    questions: [
-      {
-        id: 'who1',
-        questionName: 'Who',
-        who: '',
-      },
-      {
-        id: 'what1',
-        questionName: 'What',
-        what: '',
-      },
-      {
-        id: 'when1',
-        questionName: 'When',
-        when: '',
-      },
-      {
-        id: 'where1',
-        questionName: 'Where',
-        where: '',
-      },
-    ],
-    isSubmitted: false,
-  };
-
   handleChange = (evt) => {
-    this.setState({
-      [evt.target.name]: evt.target.value,
-    });
+    this.props.onQuestionsChange(evt.target.name, evt.target.value);
   };
 
   handleSubmit = (evt) => {
     evt.preventDefault();
-    this.setState({
-      isSubmitted: !this.state.isSubmitted,
-      disabled: !this.state.disabled,
+    this.props.submitAnswers({
+      isSubmitted: !this.props.isSubmitted,
+      disabled: !this.props.disabled,
     });
   };
 
   pageRefresh = () => {
-    window.location.reload(false);
+    this.props.resetApp();
   };
 
   render() {
+    const state = this.props.sentences;
+    const {Who, What, Where, When} = state.answers;
+
     return (
       <div className='SentenceMaker'>
-        {!this.state.isSubmitted ? (
+        {!state.isSubmitted ? (
           <QuestionsForm
             submit={this.handleSubmit}
-            questions={this.state.questions}
+            questions={state.questions}
             change={this.handleChange}
           />
         ) : (
           <Sentence
-            sentence={
-              this.state.Who +
-              ' ' +
-              this.state.What +
-              ' ' +
-              this.state.Where +
-              ' ' +
-              this.state.When
-            }
+            sentence={Who + ' ' + What + ' ' + Where + ' ' + When}
             refresh={this.pageRefresh}
           />
         )}
@@ -77,4 +50,26 @@ class SentenceMaker extends Component {
   }
 }
 
-export default SentenceMaker;
+const mapStateToProps = (state) => ({
+  sentences: state.sentences,
+});
+const mapDispatchToProps = (dispatch) => ({
+  submitAnswers: (data) =>
+    dispatch(
+      handleQuestionsSubmit({
+        isSubmitted: data.isSubmitted,
+        disabled: data.disabled,
+      })
+    ),
+  onQuestionsChange: (name, value) =>
+    dispatch(
+      handleQuestionsChange({
+        name,
+        value,
+      })
+    ),
+
+  resetApp: () => dispatch(resetApp()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(SentenceMaker);
